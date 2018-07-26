@@ -1,3 +1,4 @@
 class User < ApplicationRecord
-  belongs_to :package_id
+  belongs_to :package
+  has_many :posts
 end

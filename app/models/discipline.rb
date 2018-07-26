@@ -1,3 +1,5 @@
 class Discipline < ApplicationRecord
-  belongs_to :user
+  has_many :bundles, dependent: :destroy
+  has_many :programs, source: :package, through: :bundles
+  has_many :posts
 end

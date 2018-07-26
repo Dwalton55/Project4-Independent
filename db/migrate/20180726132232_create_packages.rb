@@ -3,7 +3,6 @@ class CreatePackages < ActiveRecord::Migration[5.2]
     create_table :packages do |t|
       t.integer :price
       t.string :name
-
       t.timestamps
     end
   end
