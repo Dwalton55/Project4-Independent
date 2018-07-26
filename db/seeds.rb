@@ -24,14 +24,18 @@ weight = Discipline.create(name: 'Weight Lifting',  description: 'A weight lifti
 mma = Discipline.create(name: 'Mixed Martial Arts', description:' a class that teaches competitive mma. Great for self defense but more focused on the competitive aspects of combat')
 
 
-fitness.users.create(name: 'Chris ruiz', email:'chrisruiz@independentmma.com', password: 'nunya', isCoach: true)
+# fitness.users.create(name: 'Chris ruiz', email:'chrisruiz@independentmma.com', password: 'nunya', isCoach: true)
+
+pack_array = [fitness, boxer , fighter ,kids]
+
+pack_array.each do |item|
+    3.times do |i|
+        item.users.create(name:"Chris ruiz #{item.name}", email:"chris.ruiz#{i}@independentmma.com", password: 'nunya', isCoach: true)
+    end
+end
 
 
 
-
-# 3.times do |i|
-# Package.users.create(name: `Chris ruiz #{i}`, email:`chris.ruiz#{i}@independentmma.com`, password: 'nunya', isCoach: true)
-# end
 
 
 
@@ -55,7 +59,7 @@ kidsbundle = [y_bjj, y_boxing]
 
 
 # << is essentiallly pushing  the array to fitness. programs and auto generating the join tables
-# the join tables are create and can be
+# the join tables are create and
 fitness.programs << fitnessbundle
 boxer.programs << boxerbundle
 fighter.programs << fighterbundle
