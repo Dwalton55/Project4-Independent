@@ -1,17 +1,14 @@
-class UserController < ApplicationController
+class Api::PostsController < ApplicationController
   def index
   end
 
   def show
   end
 
-  def edit
+  def create
   end
 
   def update
-  end
-
-  def new
   end
 
   def delete
