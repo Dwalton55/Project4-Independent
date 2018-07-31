@@ -1,8 +1,18 @@
 class Api::PackagesController < ApplicationController
   def index
-    @packages = Package.all
+    @packages = []
+    
+    Package.all.each do |package|
+      @packages.push ({
+        id: package.id,
+        name: package.name,
+        classes: package.programs
+      })
+    end
+
     render json: @packages
   end
+  
 
   def show
     @package = Package.find(params[:id])

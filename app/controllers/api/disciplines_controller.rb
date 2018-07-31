@@ -1,12 +1,31 @@
 class Api::DisciplinesController < ApplicationController
   def index
-    @disciplines = Discipline.all
-    render json: @disciplines
-  end
 
+    @disciplines = []
+    
+
+    
+    Discipline.all.each do |discipline|
+      @disciplines.push ({
+        id: discipline.id,
+        name: discipline.name,
+        description: discipline.description,
+        posts: discipline.posts,
+      })
+    end
+
+    render json: @disciplines
+  
+  end
+ 
   def show
     @discipline = Discipline.find(params[:id])
-    render json: @discipline
+    render json: {
+      name: @discipline.name,
+      description: @discipline.description,
+      id: @discipline.id,
+      posts:@discipline.posts
+    }
   end
 
   def create

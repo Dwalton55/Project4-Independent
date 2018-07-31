@@ -30,22 +30,9 @@ pack_array = [fitness, boxer , fighter ,kids]
 
 pack_array.each do |item|
     3.times do |i|
-        item.users.create(name:"Chris ruiz #{item.name}", email:"chris.ruiz#{i}@independentmma.com", password: 'nunya', isCoach: true)
+        item.users.create(name:"Chris ruiz #{item.name}", email:"chris.ruiz#{i}@independentmma.com", password: 'nunya', isCoach: true, package_id:item.id)
     end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #======================================= 
