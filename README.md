@@ -8,7 +8,7 @@ A further expansion will be to add an area specifically for the jiujitsu members
 
 GitHub: https://github.com/Dwalton55/Project4-Independent 
 Trello:	https://trello.com/b/xMzzWOzk/project-4-independant-tribute 
-
+Heroku: https://independent-remake.herokuapp.com/
 
 Technologies Used Languages -
 Ruby on rails
