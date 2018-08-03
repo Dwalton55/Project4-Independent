@@ -199,43 +199,17 @@ updateUser = () => {
                         return (
 
                             <Col xs={12} sm={3} className="person-wrapper" eventKey={discipline.id}>
+                                
                                 <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
-                                <Image src='https://www.placecage.com/200/200' className="profile-pic" />
+                                <Link to={`/users/${this.props.match.params.userId}/class/${discipline.id}`}>
+                                <Image src='https://www.placecage.com/200/200' className="profile-pic" /> 
+                                 </Link>
                                 </Button>
+                                
                                 <h3>{discipline.name}</h3>
                                 {/* <p>{discipline.description}</p> */}
                                 
-                                        <p>{discipline.description}</p>
-
-                                <Form onSubmit={this.handleSubmit}>
-
-                                <FormGroup>
-                                 <Radio 
-                                  name="discipline_id"
-                                  value={discipline.id}
-                                  onChange={(event) => this.handleChange(event)}>
-                                         {discipline.name}
-                                </Radio>{' '}
-                                </FormGroup>
-
-                                    <FormGroup controlId="formControlsTextarea">
-                                    <ControlLabel>Textarea</ControlLabel>
-                                    <FormControl componentClass="textarea" 
-                                     name="body"
-                                     type="text"
-                                     placeholder="annoucements"
-                                     value={this.state.annoucement.body}
-                                     onChange={(event) => this.handleChange(event)}
-                                     />
-                                    </FormGroup>
-
-
-                                <FormGroup>
-                                <Col smOffset={2} sm={10}>
-                                    <Button type="submit" onclick={this.handleSubmit}>Post</Button>
-                                </Col>
-                                </FormGroup>
-                                </Form>;
+                                        <p>{discipline.description}</p> 
                             </Col>
 
 

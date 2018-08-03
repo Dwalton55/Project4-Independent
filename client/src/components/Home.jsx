@@ -7,7 +7,8 @@ class Home extends Component {
     state = {
         show: false,
         disciplines: [],
-        packages:[]
+        packages:[],
+        posts:[],
 
     }
 
@@ -15,6 +16,7 @@ class Home extends Component {
     componentDidMount() {
         this.getDisciplines()
         this.getPackages()
+        this.getPosts()
     }
 
     getDisciplines = () => {
@@ -39,6 +41,17 @@ class Home extends Component {
                 console.error(error)
             })
     }
+    getPosts = () => {
+        axios.get(`/api/users/${2}/posts`)
+            .then((res) => {
+                this.setState({
+                    posts: res.data
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
 
     handleClose = () => {
         this.setState({ show: false });
@@ -50,6 +63,8 @@ class Home extends Component {
 
 
     render() {
+     
+     
         return (
             <Grid fluid={true} >
                 <Row>
@@ -62,6 +77,22 @@ class Home extends Component {
                         <Link to="/login">
                             <Button bsStyle="primary">  log in</Button>
                         </Link>
+                    </Jumbotron>
+                </Row>
+               
+               <Row>
+                    <Jumbotron>
+                        
+                        {this.state.posts.map((annoucement, i)=>{
+                            if (i > 2){
+                                return(
+                                    <h1>Annoucement: {annoucement.body}</h1>
+                                ) } else { 
+                                    console.log('did it work?')
+                                }
+                        })}
+
+                        
                     </Jumbotron>
                 </Row>
 
@@ -89,7 +120,7 @@ class Home extends Component {
                                     <div>
                                     <h3>{discipline.name}</h3>
                                     <h5>{discipline.description}</h5>
-                                    {/* <h1>Annoucement!!:{discipline.posts.lengeth}</h1> */}
+                                    
                                     </div>
                                 )
                             })}
